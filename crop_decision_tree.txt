@@ -1,0 +1,212 @@
+=== CROP RECOMMENDATION DECISION TREE ===
+
+Tree Structure:
+===============
+
+J48 pruned tree
+------------------
+
+humidity <= 74.829137
+|   humidity <= 24.969699
+|   |   K <= 50: kidneybeans (100.0)
+|   |   K > 50: chickpea (100.0)
+|   humidity > 24.969699
+|   |   N <= 59
+|   |   |   rainfall <= 81.985688
+|   |   |   |   rainfall <= 59.7598
+|   |   |   |   |   humidity <= 59.966692: mothbeans (57.0)
+|   |   |   |   |   humidity > 59.966692
+|   |   |   |   |   |   P <= 52: mothbeans (9.0)
+|   |   |   |   |   |   P > 52: lentil (101.0/1.0)
+|   |   |   |   rainfall > 59.7598
+|   |   |   |   |   P <= 57
+|   |   |   |   |   |   N <= 41
+|   |   |   |   |   |   |   temperature <= 32.39524: mothbeans (32.0)
+|   |   |   |   |   |   |   temperature > 32.39524: blackgram (2.0)
+|   |   |   |   |   |   N > 41: blackgram (4.0)
+|   |   |   |   |   P > 57: blackgram (94.0/1.0)
+|   |   |   rainfall > 81.985688
+|   |   |   |   P <= 47: mango (100.0)
+|   |   |   |   P > 47: pigeonpeas (100.0)
+|   |   N > 59
+|   |   |   rainfall <= 112.434969: maize (101.0/1.0)
+|   |   |   rainfall > 112.434969
+|   |   |   |   humidity <= 70.045567: coffee (100.0)
+|   |   |   |   humidity > 70.045567: jute (27.0)
+humidity > 74.829137
+|   P <= 32
+|   |   N <= 60
+|   |   |   K <= 20: orange (100.0)
+|   |   |   K > 20
+|   |   |   |   temperature <= 24.982875: pomegranate (100.0)
+|   |   |   |   temperature > 24.982875: coconut (100.0)
+|   |   N > 60
+|   |   |   temperature <= 27.003155: watermelon (100.0)
+|   |   |   temperature > 27.003155: muskmelon (100.0)
+|   P > 32
+|   |   humidity <= 90.006217
+|   |   |   K <= 30
+|   |   |   |   N <= 70: mungbean (100.0)
+|   |   |   |   N > 70: cotton (100.0)
+|   |   |   K > 30
+|   |   |   |   P <= 65
+|   |   |   |   |   rainfall <= 197.528258
+|   |   |   |   |   |   ph <= 6.01248: rice (8.0)
+|   |   |   |   |   |   ph > 6.01248
+|   |   |   |   |   |   |   temperature <= 22.883309: rice (4.0)
+|   |   |   |   |   |   |   temperature > 22.883309
+|   |   |   |   |   |   |   |   P <= 36
+|   |   |   |   |   |   |   |   |   rainfall <= 179.824894: jute (3.0)
+|   |   |   |   |   |   |   |   |   rainfall > 179.824894: rice (3.0)
+|   |   |   |   |   |   |   |   P > 36
+|   |   |   |   |   |   |   |   |   N <= 92: jute (64.0)
+|   |   |   |   |   |   |   |   |   N > 92
+|   |   |   |   |   |   |   |   |   |   rainfall <= 180.716828: jute (5.0)
+|   |   |   |   |   |   |   |   |   |   rainfall > 180.716828: rice (4.0/1.0)
+|   |   |   |   |   rainfall > 197.528258: rice (82.0)
+|   |   |   |   P > 65
+|   |   |   |   |   K <= 85: banana (100.0)
+|   |   |   |   |   K > 85: grapes (100.0)
+|   |   humidity > 90.006217
+|   |   |   K <= 85: papaya (100.0)
+|   |   |   K > 85: apple (100.0)
+
+Number of Leaves  : 	33
+
+Size of the tree : 	65
+
+
+Tree Graph (DOT format):
+========================
+
+digraph J48Tree {
+N0 [label="humidity" ]
+N0->N1 [label="<= 74.829137"]
+N1 [label="humidity" ]
+N1->N2 [label="<= 24.969699"]
+N2 [label="K" ]
+N2->N3 [label="<= 50"]
+N3 [label="kidneybeans (100.0)" shape=box style=filled ]
+N2->N4 [label="> 50"]
+N4 [label="chickpea (100.0)" shape=box style=filled ]
+N1->N5 [label="> 24.969699"]
+N5 [label="N" ]
+N5->N6 [label="<= 59"]
+N6 [label="rainfall" ]
+N6->N7 [label="<= 81.985688"]
+N7 [label="rainfall" ]
+N7->N8 [label="<= 59.7598"]
+N8 [label="humidity" ]
+N8->N9 [label="<= 59.966692"]
+N9 [label="mothbeans (57.0)" shape=box style=filled ]
+N8->N10 [label="> 59.966692"]
+N10 [label="P" ]
+N10->N11 [label="<= 52"]
+N11 [label="mothbeans (9.0)" shape=box style=filled ]
+N10->N12 [label="> 52"]
+N12 [label="lentil (101.0/1.0)" shape=box style=filled ]
+N7->N13 [label="> 59.7598"]
+N13 [label="P" ]
+N13->N14 [label="<= 57"]
+N14 [label="N" ]
+N14->N15 [label="<= 41"]
+N15 [label="temperature" ]
+N15->N16 [label="<= 32.39524"]
+N16 [label="mothbeans (32.0)" shape=box style=filled ]
+N15->N17 [label="> 32.39524"]
+N17 [label="blackgram (2.0)" shape=box style=filled ]
+N14->N18 [label="> 41"]
+N18 [label="blackgram (4.0)" shape=box style=filled ]
+N13->N19 [label="> 57"]
+N19 [label="blackgram (94.0/1.0)" shape=box style=filled ]
+N6->N20 [label="> 81.985688"]
+N20 [label="P" ]
+N20->N21 [label="<= 47"]
+N21 [label="mango (100.0)" shape=box style=filled ]
+N20->N22 [label="> 47"]
+N22 [label="pigeonpeas (100.0)" shape=box style=filled ]
+N5->N23 [label="> 59"]
+N23 [label="rainfall" ]
+N23->N24 [label="<= 112.434969"]
+N24 [label="maize (101.0/1.0)" shape=box style=filled ]
+N23->N25 [label="> 112.434969"]
+N25 [label="humidity" ]
+N25->N26 [label="<= 70.045567"]
+N26 [label="coffee (100.0)" shape=box style=filled ]
+N25->N27 [label="> 70.045567"]
+N27 [label="jute (27.0)" shape=box style=filled ]
+N0->N28 [label="> 74.829137"]
+N28 [label="P" ]
+N28->N29 [label="<= 32"]
+N29 [label="N" ]
+N29->N30 [label="<= 60"]
+N30 [label="K" ]
+N30->N31 [label="<= 20"]
+N31 [label="orange (100.0)" shape=box style=filled ]
+N30->N32 [label="> 20"]
+N32 [label="temperature" ]
+N32->N33 [label="<= 24.982875"]
+N33 [label="pomegranate (100.0)" shape=box style=filled ]
+N32->N34 [label="> 24.982875"]
+N34 [label="coconut (100.0)" shape=box style=filled ]
+N29->N35 [label="> 60"]
+N35 [label="temperature" ]
+N35->N36 [label="<= 27.003155"]
+N36 [label="watermelon (100.0)" shape=box style=filled ]
+N35->N37 [label="> 27.003155"]
+N37 [label="muskmelon (100.0)" shape=box style=filled ]
+N28->N38 [label="> 32"]
+N38 [label="humidity" ]
+N38->N39 [label="<= 90.006217"]
+N39 [label="K" ]
+N39->N40 [label="<= 30"]
+N40 [label="N" ]
+N40->N41 [label="<= 70"]
+N41 [label="mungbean (100.0)" shape=box style=filled ]
+N40->N42 [label="> 70"]
+N42 [label="cotton (100.0)" shape=box style=filled ]
+N39->N43 [label="> 30"]
+N43 [label="P" ]
+N43->N44 [label="<= 65"]
+N44 [label="rainfall" ]
+N44->N45 [label="<= 197.528258"]
+N45 [label="ph" ]
+N45->N46 [label="<= 6.01248"]
+N46 [label="rice (8.0)" shape=box style=filled ]
+N45->N47 [label="> 6.01248"]
+N47 [label="temperature" ]
+N47->N48 [label="<= 22.883309"]
+N48 [label="rice (4.0)" shape=box style=filled ]
+N47->N49 [label="> 22.883309"]
+N49 [label="P" ]
+N49->N50 [label="<= 36"]
+N50 [label="rainfall" ]
+N50->N51 [label="<= 179.824894"]
+N51 [label="jute (3.0)" shape=box style=filled ]
+N50->N52 [label="> 179.824894"]
+N52 [label="rice (3.0)" shape=box style=filled ]
+N49->N53 [label="> 36"]
+N53 [label="N" ]
+N53->N54 [label="<= 92"]
+N54 [label="jute (64.0)" shape=box style=filled ]
+N53->N55 [label="> 92"]
+N55 [label="rainfall" ]
+N55->N56 [label="<= 180.716828"]
+N56 [label="jute (5.0)" shape=box style=filled ]
+N55->N57 [label="> 180.716828"]
+N57 [label="rice (4.0/1.0)" shape=box style=filled ]
+N44->N58 [label="> 197.528258"]
+N58 [label="rice (82.0)" shape=box style=filled ]
+N43->N59 [label="> 65"]
+N59 [label="K" ]
+N59->N60 [label="<= 85"]
+N60 [label="banana (100.0)" shape=box style=filled ]
+N59->N61 [label="> 85"]
+N61 [label="grapes (100.0)" shape=box style=filled ]
+N38->N62 [label="> 90.006217"]
+N62 [label="K" ]
+N62->N63 [label="<= 85"]
+N63 [label="papaya (100.0)" shape=box style=filled ]
+N62->N64 [label="> 85"]
+N64 [label="apple (100.0)" shape=box style=filled ]
+}
